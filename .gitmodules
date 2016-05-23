@@ -217,6 +217,3 @@
 [submodule "lab"]
 	path = lab
 	url = https://github.com/mothsART/pelican-lab
-[submodule "pelican-bootstrap3/static/Magnific-Popup"]
-	path = pelican-bootstrap3/static/Magnific-Popup
-	url = https://github.com/dimsemenov/Magnific-Popup.git
