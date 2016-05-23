@@ -80,33 +80,46 @@
                 </h1>
             </header>
             <div class="entry-content">
+								{% if article.photo_image %}<img class="img-responsive" src="{{ SITEURL }}/{{ article.photo_image[1] }}" />{% endif %}
                 <div class="panel">
                     <div class="panel-body">
                         {% include "includes/article_info.html" %}
                     </div>
                 </div>
-                {{ article.content }}
-            </div>
-            <!-- /.entry-content -->
-            {% include 'includes/related-posts.html' %}
-            {% include 'includes/series.html' %}
-            {% include 'includes/addthis.html' %}
-            {% include 'includes/shariff.html' %}
-            {% include 'includes/comments.html' %}
-        </article>
-    </section>
+								{{ article.content }}
+								{% if article.photo_gallery %}
+								<div class="gallery">
+										{% for name, photo, thumb, exif, caption in article.photo_gallery %}
+											<div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-xs-12 thumb">
+													<p>
+													<a href="{{ SITEURL }}/{{ photo }}" title="{{ name }}" exif="{{ exif }}" caption="{{ caption }}"><img class="img-responsive" src="{{ SITEURL }}/{{ thumb }}"></a>
+													</p>
+											</div>
+										{% endfor %}
+								</div>
+								{% endif %}
+								<!-- /.gallery -->
+						</div>
+						<!-- /.entry-content -->
+						{% include 'includes/related-posts.html' %}
+						{% include 'includes/series.html' %}
+						{% include 'includes/addthis.html' %}
+						{% include 'includes/shariff.html' %}
+						{% include 'includes/comments.html' %}
+				</article>
+		</section>
 
-{% endblock %}
+		{% endblock %}
 
-{% block scripts %}
-{% if ADDTHIS_PROFILE %}
-    {% if ADDTHIS_DATA_TRACK_ADDRESSBAR|default(true) %}
-        <script type="text/javascript">var addthis_config = {"data_track_addressbar": true};</script>
-    {% endif %}
-    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid={{ ADDTHIS_PROFILE }}"></script>
-{% endif %}
-{% if SHARIFF|default(false) %}
-    <!-- add shariff support -->
-    <script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/shariff.min.js"></script>
-{% endif %}
+		{% block scripts %}
+		{% if ADDTHIS_PROFILE %}
+		{% if ADDTHIS_DATA_TRACK_ADDRESSBAR|default(true) %}
+		<script type="text/javascript">var addthis_config = {"data_track_addressbar": true};</script>
+		{% endif %}
+		<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid={{ ADDTHIS_PROFILE }}"></script>
+		{% endif %}
+		{% if SHARIFF|default(false) %}
+		<!-- add shariff support -->
+		<script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/shariff.min.js"></script>
+		{% endif %}
 {% endblock %}

@@ -78,6 +78,16 @@ a, a:hover {
     color: inherit;
 }
 
+#content {
+	height: auto;
+	overflow: auto;
+}
+
+.thumb {
+	margin-bottom: 30px;
+}
+
+
 .entry-content a {
     text-decoration: none;
     border-bottom: 1px dotted;
