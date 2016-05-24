@@ -78,18 +78,19 @@ a, a:hover {
     color: inherit;
 }
 
-.entry-content a {
-    text-decoration: none;
-    border-bottom: 1px dotted;
-}
-
 #content {
-	overflow: auto;
 	height: auto;
+	overflow: auto;
 }
 
 .thumb {
 	margin-bottom: 30px;
+}
+
+
+.entry-content a {
+    text-decoration: none;
+    border-bottom: 1px dotted;
 }
 
 .entry-content a:hover {

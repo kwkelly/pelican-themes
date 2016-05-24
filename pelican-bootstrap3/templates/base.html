@@ -99,8 +99,13 @@
               title="{{ SITENAME }} {{ category }} ATOM Feed"/>
     {% endif %}
 
+<<<<<<< HEAD
     {% if (article and article.photo_gallery) or (articles_page and articles_page.object_list[0].photo_gallery) %}
 			<link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/magnific-popup.css">
+=======
+		{% if (article and article.photo_gallery) or (articles_page and articles_page.object_list[0].photo_gallery) %}
+			<link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/Magnific-Popup/dist/magnific-popup.css">
+>>>>>>> 0d770d5737c491b9d148cf8ff6e69c9981e03ea8
     {% endif %}
 
 </head>

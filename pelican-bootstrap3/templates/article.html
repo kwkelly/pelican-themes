@@ -80,6 +80,7 @@
                 </h1>
             </header>
             <div class="entry-content">
+								{% if article.photo_image %}<img class="img-responsive" src="{{ SITEURL }}/{{ article.photo_image[1] }}" />{% endif %}
                 <div class="panel">
                     <div class="panel-body">
                         {% include "includes/article_info.html" %}
@@ -105,17 +106,17 @@
         </article>
     </section>
 
-{% endblock %}
+		{% endblock %}
 
-{% block scripts %}
-{% if ADDTHIS_PROFILE %}
-    {% if ADDTHIS_DATA_TRACK_ADDRESSBAR|default(true) %}
-        <script type="text/javascript">var addthis_config = {"data_track_addressbar": true};</script>
-    {% endif %}
-    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid={{ ADDTHIS_PROFILE }}"></script>
-{% endif %}
-{% if SHARIFF|default(false) %}
-    <!-- add shariff support -->
-    <script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/shariff.min.js"></script>
-{% endif %}
+		{% block scripts %}
+		{% if ADDTHIS_PROFILE %}
+		{% if ADDTHIS_DATA_TRACK_ADDRESSBAR|default(true) %}
+		<script type="text/javascript">var addthis_config = {"data_track_addressbar": true};</script>
+		{% endif %}
+		<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid={{ ADDTHIS_PROFILE }}"></script>
+		{% endif %}
+		{% if SHARIFF|default(false) %}
+		<!-- add shariff support -->
+		<script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/shariff.min.js"></script>
+		{% endif %}
 {% endblock %}
